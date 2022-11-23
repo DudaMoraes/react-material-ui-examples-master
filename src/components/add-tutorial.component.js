@@ -8,14 +8,18 @@ class AddTutorial extends Component {
     constructor(props) {
         super(props);
         this.onChangeTitle = this.onChangeTitle.bind(this);
-        this.onChangeDescription = this.onChangeDescription.bind(this);
+        this.onChangeCpf = this.onChangeCpf.bind(this);
+        this.onChangeDataMatricula = this.onChangeDataMatricula.bind(this);
+        this.onChangeServicosContratados = this.onChangeServicosContratados.bind(this);
+        this.onChangePlanoPagamento = this.onChangePlanoPagamento.bind(this);
+        this.onChangeFormapagamento = this.onChangeFormapagamento.bind(this);
         this.saveTutorial = this.saveTutorial.bind(this);
         this.newTutorial = this.newTutorial.bind(this);
 
         this.state = {
             id: null,
             title: "",
-            description: "",
+            cpf: "",
             published: false,
 
             submitted: false
@@ -28,16 +32,46 @@ class AddTutorial extends Component {
         });
     }
 
-    onChangeDescription(e) {
+    onChangeCpf(e) {
         this.setState({
-            description: e.target.value
+            cpf: e.target.value
         });
     }
+
+    onChangeDataMatricula(e) {
+        this.setState({
+            datamatricula: e.target.value
+        });
+    }
+
+    onChangeServicosContratados(e) {
+        this.setState({
+            servicoscontratados: e.target.value
+        });
+    }
+
+    onChangePlanoPagamento(e) {
+        this.setState({
+            planoPagamento: e.target.value
+        });
+    }
+    
+    onChangeFormapagamento(e) {
+        this.setState({
+            formapagamento: e.target.value
+        });
+    }
+
+
 
     saveTutorial() {
         var data = {
             title: this.state.title,
-            description: this.state.description
+            cpf: this.state.cpf,
+            datamatricula: this.state.datamatricula,
+            servicoscontratados: this.state.servicoscontratados,
+            planoPagamento: this.state.planoPagamento,
+            formapagamento: this.state.formapagamento,
         };
 
         TutorialDataService.create(data)
@@ -45,7 +79,11 @@ class AddTutorial extends Component {
                 this.setState({
                     id: response.data.id,
                     title: response.data.title,
-                    description: response.data.description,
+                    cpf: response.data.cpf,
+                    datamatricula: response.data.datamatricula,
+                    servicoscontratados: response.data.servicoscontratados,
+                    planoPagamento: response.data.planoPagamento,
+                    formapagamento: response.data.formapagamento,
                     published: response.data.published,
 
                     submitted: true
@@ -61,7 +99,11 @@ class AddTutorial extends Component {
         this.setState({
             id: null,
             title: "",
-            description: "",
+            cpf: "",
+            datamatricula: "",
+            servicoscontratados: "",
+            planoPagamento: "",
+            formapagamento: "",
             published: false,
 
             submitted: false
@@ -100,8 +142,8 @@ class AddTutorial extends Component {
                                 <TextField
                                     label="CPF"
                                     name="cpf"
-                                    value={this.state.description}
-                                    onChange={this.onChangeDescription}
+                                    value={this.state.cpf}
+                                    onChange={this.onChangeCpf}
                                     required
                                 />
                             </div>
@@ -110,8 +152,8 @@ class AddTutorial extends Component {
                                 <TextField
                                     label="Data da matrícula"
                                     name="datamatricula"
-                                    value={this.state.description}
-                                    onChange={this.onChangeDescription}
+                                    value={this.state.datamatricula}
+                                    onChange={this.onChangeDataMatricula}
                                     required
                                 />
                             </div>
@@ -119,9 +161,9 @@ class AddTutorial extends Component {
                             <div className={classes.textField}>
                                 <TextField
                                     label="Serviços contratados"
-                                    name="datamatricula"
-                                    value={this.state.description}
-                                    onChange={this.onChangeDescription}
+                                    name="servicoscontratados"
+                                    value={this.state.servicoscontratados}
+                                    onChange={this.onChangeServicosContratados}
                                     required
                                 />
                             </div>
@@ -130,8 +172,8 @@ class AddTutorial extends Component {
                                 <TextField
                                     label="Plano de pagamento"
                                     name="planopagamento"
-                                    value={this.state.description}
-                                    onChange={this.onChangeDescription}
+                                    value={this.state.planoPagamento}
+                                    onChange={this.onChangePlanoPagamento}
                                     required
                                 />
                             </div>
@@ -140,8 +182,8 @@ class AddTutorial extends Component {
                                 <TextField
                                     label="Forma de pagamento"
                                     name="formapagamento"
-                                    value={this.state.description}
-                                    onChange={this.onChangeDescription}
+                                    value={this.state.formapagamento}
+                                    onChange={this.onChangeFormapagamento}
                                     required
                                 />
                             </div>

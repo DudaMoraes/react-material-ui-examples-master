@@ -6,6 +6,8 @@ import { styles } from "./css-common"
 import AddTutorial from "./components/add-tutorial.component";
 import Tutorial from "./components/tutorial.component";
 import TutorialsList from "./components/tutorials-list.component";
+import Schedule from "./components/tutorial.component";
+import Workout from "./components/workout.component";
 
 import { AppBar, Toolbar, Typography, withStyles } from '@material-ui/core';
 
@@ -30,6 +32,11 @@ class App extends Component {
                 Criar nova matrícula
             </Typography>
             </Link>
+            <Link to={"/schedule"} className={classes.link}>
+              <Typography variant="body2">
+                Minha agenda
+            </Typography>
+            </Link>
           </Toolbar>
         </AppBar>
 
@@ -37,6 +44,8 @@ class App extends Component {
             <Route exact path={["/", "/tutorials"]} component={TutorialsList} />
             <Route exact path="/add" component={AddTutorial} />
             <Route path="/tutorials/:id" component={Tutorial} />
+            <Route path="/schedule" component={Schedule} />
+            <Route path="/workout" component={Workout} />
           </Switch>
       </div>
     );
