@@ -159,7 +159,7 @@ class TutorialsList extends Component {
                 </div>
 
                 <Link
-                  to={"/tutorials/" + currentTutorial.id}
+                  to={"/matriculas/" + currentTutorial.id}
                   className={classes.edit}
                 >
                   Edit

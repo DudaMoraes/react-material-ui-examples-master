@@ -22,7 +22,7 @@ class App extends Component {
             <Typography className={classes.name} variant="h6">
               SysGym
             </Typography>
-            <Link to={"/tutorials"} className={classes.link}>
+            <Link to={"/matriculas"} className={classes.link}>
               <Typography variant="body2">
                 Matrículas
               </Typography>
@@ -41,7 +41,7 @@ class App extends Component {
         </AppBar>
 
           <Switch>
-            <Route exact path={["/", "/tutorials"]} component={TutorialsList} />
+            <Route exact path={["/", "/matriculas"]} component={TutorialsList} />
             <Route exact path="/add" component={AddTutorial} />
             <Route path="/tutorials/:id" component={Tutorial} />
             <Route path="/schedule" component={Schedule} />
